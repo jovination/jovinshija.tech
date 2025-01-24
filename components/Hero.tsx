@@ -8,8 +8,8 @@ function Hero() {
                 className="flex  justify-between "
                 >
             <div className=" w-[92.67px] md:w-[137.33px] h-[4px]  rounded-full bg-[--green]"></div>
-            <div className="w-[92.67px] md:w-[137.33px]  h-[4px] rounded-full   bg-[--green]"></div>
-            <div className="w-[92.67px] md:w-[137.33px]  h-[4px] rounded-full   bg-[--grey]"></div>
+            <div className="w-[92.67px] md:w-[137.33px]  h-[4px] rounded-full  bg-[--green]"></div>
+            <div className="w-[92.67px] md:w-[137.33px]  h-[4px] rounded-full  bg-[--grey]"></div>
                   
                 </div>
                 <div className="w-full h-[126.11px] md:h-[84.61px]">
