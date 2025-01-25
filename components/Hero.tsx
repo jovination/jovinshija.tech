@@ -56,7 +56,7 @@ function Hero() {
                  From concept to code, I deliver <br /> full-stack web excellence.
                 </p>  
                 </div>
-                <div className="flex items-center gap-8">
+                <div className="flex items-center gap-[15px] md:gap-[30px]">
                 <GetStartedButton 
                     href="#" 
                     className="custom-class"
@@ -64,9 +64,9 @@ function Hero() {
                     >
                         Get started
                     </GetStartedButton>
-                    <div className="bg-[--grey03]  h-[54px] rounded-full w-fit px-6 py-[2px] flex items-center justify-center">
+                    <div className=" hidden bg-[--grey03]  h-[54px] rounded-full w-fit md:flex  md:px-[30px] py-[6px]  items-center justify-center">
                         <a 
-                         className="text-[17px] font-medium"
+                         className="text-md font-medium"
                          href="">
                             My work
                         </a>

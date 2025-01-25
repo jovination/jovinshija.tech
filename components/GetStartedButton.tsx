@@ -8,10 +8,10 @@ const GetStartedButton = ({
   iconClassName = ""
 }) => {
   return (
-    <div className={`bg-[--primary] flex items-center justify-end rounded-full gap-6 pr-[2px] py-[2px] pl-[25px] w-fit ${className}`}>
+    <div className={`bg-[--primary] flex items-center justify-end rounded-full gap-6  pr-[2px] py-[2px] pl-[25px] w-fit ${className}`}>
       <a 
         href={href} 
-        className="text-[17px] font-medium"
+        className="text-md font-medium"
       >
         {children}
       </a>
