@@ -36,6 +36,8 @@ body {
     --background: #121212;
     --green: #9EF34A;
     --grey:  #272727;
+    --grey01: #A0A0A0;
+    --icons: #717171;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -96,3 +98,4 @@ body {
   display: flex;
   flex-direction: column;
 }
+
