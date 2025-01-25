@@ -1,12 +1,14 @@
 import { RiTwitterXLine, RiInstagramLine, RiLinkedinBoxFill, RiGithubFill } from "react-icons/ri";
 import AvailabilityIndicator from "@/components/AvailabilityIndicator"
 import  SocialLinks from "@/components/SocialLinks"
-import  StarRating from "@/components/StarRating"
+import  StarRating from "@/components/StarRating" 
+import  GetStartedButton from "@/components/GetStartedButton" 
+
 function Hero() {
     return(
         <div className="mt-24">
         <div className="w-[370px] h-[730.28px] md:w-[550px] md:h-[881.59px] hero rounded-[36px] md:rounded-[46px] flex items-center justify-center ">
-            <div className="w-[358px] h-[623.11px] md:w-[532px] md:h-[778.39px] wrapper-hero rounded-[30px] md:rounded-[36px] py-[20px] px-[30px] md:py-[30px] md:px-[50px] gap-[28px] md:gap-[50px]">
+            <div className="w-[358px] h-[623.11px] md:w-[532px] md:h-[778.39px] wrapper-hero rounded-[30px] md:rounded-[36px] py-[20px] px-[30px] md:py-[30px] md:px-[50px] gap-[28px] md:gap-[45px]">
         <div className="flex  justify-between ">
             <div className=" w-[92.67px] md:w-[137.33px] h-[4px]  rounded-full bg-[--green]"></div>
             <div className="w-[92.67px] md:w-[137.33px]  h-[4px] rounded-full  bg-[--green]"></div>
@@ -53,12 +55,27 @@ function Hero() {
                  <p className="text-md text-[--grey01]">
                  From concept to code, I deliver <br /> full-stack web excellence.
                 </p>  
-
                 </div>
-                <div></div>
+                <div className="flex items-center gap-8">
+                <GetStartedButton 
+                    href="#" 
+                    className="custom-class"
+                    iconClassName="custom-icon-class"
+                    >
+                        Get started
+                    </GetStartedButton>
+                    <div className="bg-[--grey03]  h-[54px] rounded-full w-fit px-6 py-[2px] flex items-center justify-center">
+                        <a 
+                         className="text-[17px] font-medium"
+                         href="">
+                            My work
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>  
-        </div>  
+        </div> 
+       
     )
 }
 export default Hero
