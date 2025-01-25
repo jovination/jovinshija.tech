@@ -4,7 +4,7 @@ import { Home, MessageCircle } from 'lucide-react'
 
 function Navbar() {
   return (
-    <nav className="w-[309px] h-[54px] navbar m-4 rounded-full p-4 flex items-center">
+    <nav className="fixed w-[309px] h-[54px] navbar m-6 rounded-full p-4 flex items-center">
       <div className="w-full h-auto flex items-center gap-2">
         <Link href="/" className="hover:opacity-80 transition-opacity mr-7">
           <Home size={20} />
