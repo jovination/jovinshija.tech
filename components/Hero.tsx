@@ -5,6 +5,9 @@ import  StarRating from "@/components/StarRating"
 import  GetStartedButton from "@/components/GetStartedButton" 
 import { LuArrowUpRight } from "react-icons/lu";
 import { SlCursor } from "react-icons/sl";
+import Image from "next/image"
+import profile from "@/public/profile.png"
+
 
 
 function Hero() {
@@ -30,7 +33,13 @@ function Hero() {
                       </div>
 
                     <div className="flex  gap-5">
-                        <div className="w-[60px] h-[60px] bg-white rounded-full">
+                        <div className="w-[60px] h-[60px] bg-white rounded-full flex items-center justify-center">
+                            <Image
+                            src={profile}
+                            alt=""
+                            width={95}
+                            
+                            />
                         </div>    
                         <div>
                         <div className="flex flex-col space-y-[4px] ">
@@ -76,7 +85,7 @@ function Hero() {
                     </div>
                 </div>
             </div>
-            <div className="flex items-center flex-col gap-[6px] md:flex-row pt-[20px] ">
+            <div className="flex items-center flex-col gap-[6px] md:flex-row pt-[12px] ">
                 <div className="flex items-center gap-[8px] ">
                 <SlCursor className="w-[12px] h-[12px] text-[--grey01] transform scale-x-[-1]" />
                 <p className="text-xs text-[--grey01] font-semibold">Located in <span className="text-white">Tanzania </span>, I am available to work remotely</p>
