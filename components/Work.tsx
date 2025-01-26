@@ -1,4 +1,5 @@
-
+import { LuArrowUpRight } from "react-icons/lu";
+import ProjectCards from "@/components/ProjectCards"
 
 function Work(){
     return(
@@ -7,8 +8,8 @@ function Work(){
                 <h2 className=" text-3xl md:text-5xl font-medium">My Projects</h2>
                 <p className="text-[--grey01] text-center font-medium">Check out some of my favorite <br /> & most recent projects.</p>
             </div>
-            <div>
-                
+            <div className="mt-10">
+              <ProjectCards />
             </div>
 
         </div>

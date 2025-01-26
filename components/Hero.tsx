@@ -85,7 +85,7 @@ function Hero() {
                 className="flex items-center gap-[6px] md:ml-10"
                 href="">
                     <span className="text-xs text-white font-semibold"> My Agency </span>
-                    <LuArrowUpRight className="text-[--primary] w-[20px] h-[20px] mt-[1.5px]" />
+                    <LuArrowUpRight className="text-[--primary] w-[18px] h-[18px] mt-[1.5px]" />
                 </a>
  </div>
         </div>  

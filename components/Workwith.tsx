@@ -40,7 +40,7 @@ export default function Workwith() {
 
   return (
     <motion.section
-      ref={ref}
+      ref={ref} 
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={container}
