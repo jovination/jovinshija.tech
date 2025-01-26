@@ -3,12 +3,15 @@ import AvailabilityIndicator from "@/components/AvailabilityIndicator"
 import  SocialLinks from "@/components/SocialLinks"
 import  StarRating from "@/components/StarRating" 
 import  GetStartedButton from "@/components/GetStartedButton" 
+import { LuArrowUpRight } from "react-icons/lu";
+import { SlCursor } from "react-icons/sl";
+
 
 function Hero() {
     return(
         <div className="mt-24">
-        <div className="w-[370px] h-[730.28px] md:w-[550px] md:h-[881.59px] hero rounded-[36px] md:rounded-[46px] flex items-center justify-center ">
-            <div className="w-[358px] h-[623.11px] md:w-[532px] md:h-[778.39px] wrapper-hero rounded-[30px] md:rounded-[36px] py-[20px] px-[30px] md:py-[30px] md:px-[50px] gap-[28px] md:gap-[45px]">
+        <div className="w-[370px] h-[730.28px] md:w-[550px] md:h-[881.59px] hero rounded-[36px] md:rounded-[46px] flex flex-col gap-[10px] items-center justify-center ">
+            <div className="w-[358px] h-[623.11px] md:w-[532px] md:h-[778.39px] wrapper-hero rounded-[30px] md:rounded-[36px] py-[20px] px-[30px] md:py-[30px] md:px-[50px] gap-[22px] md:gap-[45px]">
         <div className="flex  justify-between ">
             <div className=" w-[92.67px] md:w-[137.33px] h-[4px]  rounded-full bg-[--green]"></div>
             <div className="w-[92.67px] md:w-[137.33px]  h-[4px] rounded-full  bg-[--green]"></div>
@@ -73,6 +76,18 @@ function Hero() {
                     </div>
                 </div>
             </div>
+            <div className="flex items-center flex-col gap-[6px] md:flex-row pt-[20px] ">
+                <div className="flex items-center gap-[8px] ">
+                <SlCursor className="w-[12px] h-[12px] text-[--grey01] transform scale-x-[-1]" />
+                <p className="text-xs text-[--grey01] font-semibold">Located in <span className="text-white">Tanzania </span>, I am available to work remotely</p>
+                </div>
+                <a 
+                className="flex items-center gap-[6px] md:ml-10"
+                href="">
+                    <span className="text-xs text-white font-semibold"> My Agency </span>
+                    <LuArrowUpRight className="text-[--primary] w-[20px] h-[20px] mt-[1.5px]" />
+                </a>
+ </div>
         </div>  
         </div> 
        
