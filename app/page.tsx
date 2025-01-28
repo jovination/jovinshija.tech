@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Work from "@/components/Work";
 import Services from "@/components/Services";
+import WorkingProcess from  "@/components/WorkingProcess"
 
 
 
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <Work />
       <Services />
+      <WorkingProcess />
     </div>
   );
 }

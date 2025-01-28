@@ -64,7 +64,7 @@ function ServiceAccordion() {
   }
 
   return (
-    <div className="w-full max-w-md md:max-w-lg  mx-auto  p-10">
+    <div className="w-full max-w-md md:max-w-lg  mx-auto  p-8">
       <div className="space-y-4">
         {services.map((service) => (
           <div key={service.id} className="border-t border-[#3B3A3A]">

@@ -8,9 +8,9 @@ function Services(){
                 <p className="text-[--grey01] text-center font-medium">
                 Let’s bring your ideas <br /> to life, together</p>
             </div>
-            <div>
-      <ServicesAccordion />
-    </div>
+            <div className="mt-8">
+            <ServicesAccordion />
+           </div>
         </div>
     )
 }
