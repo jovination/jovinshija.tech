@@ -9,14 +9,17 @@ function WorkingProcess(){
         <div>
         <p className="text-8xl font-semibold">4</p>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1 md:gap-2">
         <p className="text-md font-semibold text-white text-2xl">Step process</p>
-        <p className=" md:leading-1 text-sm md:text-base text-white font-medium">A proven workflow that ensures <br /> seamless collaboration and <br /> outstanding results.</p>
+        <p className="md:leading-1 text-sm md:text-base text-white font-medium">
+        approach that guarantees smooth collaboration and <br /> exceptional results.
+        </p>
+
         </div>
         </div>
         </div>
 
-        <div className="w-full h-[130px] md:h-[150px] px-[30px] py-[34px] md:py-[44px] bg-[--background] rounded-[30px] md:rounded-[40px] flex justify-center items-start gap-[22px]">
+        <div className="w-full h-[130px] md:h-[150px] px-[20px] md:px-[30px] py-[34px] md:py-[44px] bg-[--background] rounded-[30px] md:rounded-[40px] flex justify-center items-start gap-[22px]">
             <div className="w-[202px]">
             <p className="text-right leading-[1.2] text-[--grey01] text-sm md:text-lg font-semibold">We’ll discuss your goals and vision</p>
             </div>
@@ -30,11 +33,11 @@ function WorkingProcess(){
                 <p className="text-[--primary] text-xl font-bold">01</p>
             </div>
             <div className="w-[202px]">
-            <p className="  md:text-2xl font-semibold">Discovery call</p>
+            <p className="  md:text-2xl font-semibold">Booking a call</p>
             </div>
         </div>
 
-        <div className="w-full h-[130px] md:h-[150px] px-[30px] py-[34px] md:py-[44px] bg-[--background] rounded-[30px] md:rounded-[40px]  flex justify-center items-start gap-[22px]">
+        <div className="w-full h-[130px] md:h-[150px] px-[20px] md:px-[30px] py-[34px] md:py-[44px] bg-[--background] rounded-[30px] md:rounded-[40px]  flex justify-center items-start gap-[22px]">
             <div className="w-[202px]">
             <p className=" text-right md:text-2xl font-semibold w-full">Custom design</p>
             </div>
@@ -54,9 +57,9 @@ function WorkingProcess(){
 
             </div>
         </div>
-        <div className="w-full h-[130px] md:h-[150px] px-[30px] py-[34px] md:py-[44px] bg-[--background] rounded-[30px] md:rounded-[40px] flex justify-center items-start gap-[22px]">
-            <div className="w-[202px] w-full">
-            <p className="text-right leading-[1.2] text-[--grey01] text-sm md:text-lg font-semibold w-full">
+        <div className="w-full h-[130px] md:h-[150px] px-[20px] md:px-[30px] py-[34px] md:py-[44px] bg-[--background] rounded-[30px] md:rounded-[40px] flex justify-center items-start gap-[22px]">
+            <div className="w-[202px] h-[54px]">
+            <p className="text-right leading-[1.2] text-[--grey01] text-sm md:text-lg font-semibold">
             The design comes to life with clean, efficient code               
              </p>
             </div>
@@ -73,7 +76,7 @@ function WorkingProcess(){
             <p className="  md:text-2xl font-semibold">Development</p>
             </div>
         </div>
-        <div className="w-full h-[130px] md:h-[150px] px-[30px] py-[34px] md:py-[44px] bg-[--background] rounded-[30px] md:rounded-[40px]  flex justify-center items-start gap-[22px]">
+        <div className="w-full h-[130px] md:h-[150px] px-[20px] md:px-[30px] py-[34px] md:py-[44px] bg-[--background] rounded-[30px] md:rounded-[40px]  flex justify-center items-start gap-[22px]">
             <div className="w-[202px]">
             <p className=" text-right md:text-2xl font-semibold w-full">Launch</p>
             </div>
