@@ -4,6 +4,8 @@ import Work from "@/components/Work";
 import Services from "@/components/Services";
 import WorkingProcess from  "@/components/WorkingProcess"
 import SkillSets from "@/components/SkillSets"
+import Experience from "@/components/Experience"
+
 
 
 
@@ -16,6 +18,7 @@ export default function Home() {
       <Services />
       <WorkingProcess />
       <SkillSets />
+      <Experience />
     </div>
   );
 }

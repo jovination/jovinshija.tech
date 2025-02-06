@@ -3,7 +3,7 @@ import Image from "next/image"
 
 function WorkingProcess(){
     return(
-        <div className="mt-32 hero w-[380px] md:w-[550px] h-full h-[751px] md:h-[870.2px] rounded-[36px] md:rounded-[46px] p-2 space-y-2">
+        <div className="mt-32 hero w-[380px] md:w-[550px] h-full h-[752px] md:h-[870.2px] rounded-[36px] md:rounded-[46px] p-2 space-y-2">
         <div className="w-full h-[137px] md:h-[168px] bg-[--primary] rounded-[32px] md:rounded-[40px] pl-[26px]  px-[40px] md:py-[32px]  md:px-[46px] flex items-center">  
         <div className="flex items-center gap-6 ">
         <div>
