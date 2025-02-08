@@ -20,7 +20,6 @@ export default function Home() {
       <WorkingProcess />
       <SkillSets />
       <Experience />
-      <ClientReview />
     </div>
   );
 }

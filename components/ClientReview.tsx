@@ -11,9 +11,10 @@ function ClientReview() {
         </div>
 
         <div className="mt-20 flex space-x-4 ">
-            <div className="hidden md:flex left-gradient"> 
+            <div className=" hidden md:flex left-gradient"> 
             </div>
             <div className="w-[360px] h-[750px] rounded-[60px] bg-[--primary]">
+
             </div>
             <div className="hidden md:flex  right-gradient">     
             </div>
