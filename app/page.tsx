@@ -5,6 +5,7 @@ import Services from "@/components/Services";
 import WorkingProcess from  "@/components/WorkingProcess"
 import SkillSets from "@/components/SkillSets"
 import Experience from "@/components/Experience"
+import ClientReview from "@/components/ClientReview"
 
 
 
@@ -19,6 +20,7 @@ export default function Home() {
       <WorkingProcess />
       <SkillSets />
       <Experience />
+      <ClientReview />
     </div>
   );
 }

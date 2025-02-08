@@ -100,4 +100,27 @@ body {
   display: flex;
   flex-direction: column;
 }
+.left-gradient{
+    align-self: stretch;
+    background: linear-gradient(270deg, #222222 0%, #121212 100%);
+    border-radius: 60px;
+    flex: none;
+    height: 750px;
+    overflow: hidden;
+    position: relative;
+    width: 360px;
+}
+
+.right-gradient {
+  align-self: stretch;
+  background: linear-gradient(90deg, #222222 0%, #121212 100%);
+  border-radius: 60px;
+  flex: none;
+  height: 750px;
+  overflow: hidden;
+  position: relative;
+  width: 360px;
+}
+
+
 
