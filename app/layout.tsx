@@ -27,7 +27,6 @@ export const metadata: Metadata = {
         alt: "Jovin Shija Portfolio Preview",
       },
     ],
-    type: "website",
     locale: "en_US",
   },
 
