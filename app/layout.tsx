@@ -21,23 +21,30 @@ export const metadata: Metadata = {
       "Explore the portfolio of Jovin Shija, a passionate Software Developer & UI/UX Designer. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
     images: [
       {
-        url: "",
+        url: "/preview.png",
         width: 1200,
         height: 630,
         alt: "Jovin Shija Portfolio Preview",
       },
     ],
+    type: "website",
+    locale: "en_US",
   },
+
   twitter: {
     card: "summary_large_image",
     site: "@jovination4",
     title: "Jovin Shija | Software Engineer",
     description:
       "Explore the portfolio of Jovin Shija, a Software Engineer & Full Stack Developer. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
-    images: ["https://jovinshija.tech/images/webpreview.png"],
+    images: ["https://jovinshija.tech/preview.png"],
   },
   other: {
     "facebook-domain-verification": "p35u9ozrvagy4l1mwtld6t0hwkhllz",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -71,7 +78,7 @@ export default function RootLayout({
       </head>
       <body className={`${manrope.variable} antialiased bg-[--background] text-white`}>
         {children}
-        
+
         <Script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js" strategy="lazyOnload" />
         <Script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js" strategy="lazyOnload" />
         <Script id="firebase-init" strategy="lazyOnload" dangerouslySetInnerHTML={{
