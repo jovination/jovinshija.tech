@@ -1,10 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { SetStateAction, useState } from "react"
 import { FaLayerGroup, FaDesktop, FaServer, FaPlug, FaBolt, FaRocket, FaBug } from "react-icons/fa"
 
 function ServiceAccordion() {
-  const [openSection, setOpenSection] = useState("full-stack")
+  const [openSection, setOpenSection] = useState<string | null>("full-stack")
 
   const services = [
     {
@@ -59,7 +59,7 @@ function ServiceAccordion() {
     },
   ]
 
-  function toggleSection(id) {
+  function toggleSection(id: string) {
     setOpenSection(openSection === id ? null : id)
   }
 
