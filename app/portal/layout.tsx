@@ -1,6 +1,8 @@
 import type React from "react"
 import { Header } from "@/components/header"
 import { Navigation } from "@/components/navigation"
+import { Toaster } from "@/components/ui/toaster"
+
 
 export default function PortalLayout({
   children,
@@ -13,6 +15,7 @@ export default function PortalLayout({
       <div className="mx-auto max-w-7xl px-4 py-8">
         <Navigation />
         <main className="mt-8">{children}</main>
+        <Toaster />
       </div>
     </div>
   )
