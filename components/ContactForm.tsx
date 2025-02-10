@@ -3,6 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+
 import { MdEmail, MdPerson, MdMessage } from "react-icons/md"
 import { Loader2 } from "lucide-react"
 
@@ -15,7 +16,7 @@ function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState("")
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
@@ -31,7 +32,7 @@ function ContactForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, type: "message" }),
       })
 
       const data = await response.json()
@@ -39,6 +40,8 @@ function ContactForm() {
       if (response.ok) {
         setSubmitMessage("Message sent successfully!")
         setFormData({ name: "", email: "", message: "" })
+        // Clear cache by refetching messages
+        await fetch("/api/message", { cache: "no-store" })
       } else {
         setSubmitMessage(data.error || "Failed to send message. Please try again.")
       }
@@ -50,8 +53,8 @@ function ContactForm() {
   }
 
   return (
-    <div className="p-2 w-[370px] md:w-[550px] h-[780px] hero rounded-[36px] md:rounded-[46px]">
-      <div className="h-[700px] wrapper-hero rounded-[30px] md:rounded-[40px] flex flex-col gap-[28px] md:gap-[28px] px-[20px] py-[40px]  md:p-[60px]">
+    <div className="p-2 w-[370px] md:w-[550px] h-[850px] hero rounded-[36px] md:rounded-[46px]">
+      <div className="h-[770px] wrapper-hero rounded-[30px] md:rounded-[40px] flex flex-col gap-[28px] md:gap-[28px] px-[20px] py-[40px]  md:p-[60px]">
         <div className="flex flex-col items-center gap-6">
           <h2 className=" text-3xl md:text-5xl font-medium">Contact</h2>
           <p className="text-[--grey01] text-center font-medium">
@@ -86,16 +89,15 @@ function ContactForm() {
           </div>
 
           <div className="relative">
-            <input
-              className="w-full h-[58px] py-2 pl-12 pr-6 bg-[#222323] rounded-full focus:outline-none focus:ring-1 focus:ring-[#2A2A2B]"
-              type="text"
+            <textarea
+              className="w-full h-[116px] py-5 pl-12 pr-6 bg-[#222323] rounded-[29px] focus:outline-none focus:ring-1 focus:ring-[#2A2A2B]"
               name="message"
               placeholder="Enter Your Message"
               value={formData.message}
               onChange={handleChange}
               required
             />
-            <MdMessage className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+            <MdMessage className="absolute left-4 top-6 text-gray-400" size={20} />
           </div>
 
           <Button
