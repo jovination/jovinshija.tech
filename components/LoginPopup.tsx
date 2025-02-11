@@ -54,11 +54,11 @@ export function LoginPopup({ isOpen, onClose, onLogin }: LoginPopupProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-      <div className="p-2 w-[370px] md:w-[550px] hero rounded-[36px] md:rounded-[46px]">
+      <div className="p-1 md:p-2 w-[370px] md:w-[550px] h-[500px] hero rounded-[36px] md:rounded-[46px]">
         <div className="wrapper-hero rounded-[30px] md:rounded-[40px] flex flex-col gap-[28px] md:gap-[28px] px-[20px] py-[40px] md:p-[60px] bg-[#131312] border border-[#222323]">
           <div className="flex justify-between items-center">
             <h2 className="w-full text-3xl text-center md:text-4xl font-bold text-[#FFFFFE]">My Portal</h2>
-            <Button variant="ghost" size="icon" onClick={onClose} className="text-[#FFFFFE] hover:bg-[#222323]">
+            <Button variant="ghost" size="icon" onClick={onClose} className="text-[#FFFFFE] hover:bg-[#222323] rounded-full">
               <X className="h-6 w-6" />
             </Button>
           </div>
