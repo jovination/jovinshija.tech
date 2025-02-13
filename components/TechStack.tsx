@@ -4,9 +4,6 @@ import { FiFigma } from "react-icons/fi"
 import { RiTailwindCssFill } from "react-icons/ri"
 import { FaReact, FaNodeJs, FaDatabase } from "react-icons/fa"
 import { IoLogoGithub } from "react-icons/io"
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
-
 import type { ReactNode } from "react"
 
 interface Skill {
@@ -60,52 +57,34 @@ const defaultSkills: Skill[] = [
 ]
 
 function TechStack({ skills = defaultSkills }: TechstackProps) {
-  const containerRef = useRef(null)
-  const isInView = useInView(containerRef, { once: true, amount: 0.2 })
-
   return (
-    <div ref={containerRef} className="space-y-3">
+    <div className="space-y-3">
       <div className="space-y-3">
-        {skills.map((skill, index) => (
-          <motion.div
+        {skills.map((skill) => (
+          <div
             key={skill.name}
-            className="relative w-[370px] md:w-[550px] h-[90px] hero rounded-[20px] overflow-hidden"
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ scale: 1.03 }}
+            className="relative w-[370px] md:w-[550px] h-[90px] hero rounded-[20px] overflow-hidden hover:scale-[1.03] transition-transform duration-300"
           >
             <div className="absolute inset-0" />
 
-            <motion.div
+            <div
               className="absolute inset-0 bg-[--primary]"
-              initial={{ width: 0 }}
-              animate={isInView ? { width: `${skill.proficiency}%` } : { width: 0 }}
-              transition={{ duration: 1, delay: index * 0.1 + 0.5 }}
+              style={{ width: `${skill.proficiency}%` }}
             />
 
             <div className="relative h-full flex items-center p-4 gap-4">
-              <motion.div
-                className="flex-shrink-0 w-12 h-12 bg-black/70 rounded-xl flex items-center justify-center"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.5 }}
-              >
+              <div className="flex-shrink-0 w-12 h-12 bg-black/70 rounded-xl flex items-center justify-center hover:rotate-[360deg] transition-transform duration-500">
                 {skill.icon}
-              </motion.div>
+              </div>
               <div className="flex-grow">
                 <h3 className="font-medium text-white">{skill.name}</h3>
                 <p className="text-[#B8B8FE] text-sm font-medium">{skill.description}</p>
               </div>
-              <motion.div
-                className="flex-shrink-0 bg-black/40 py-[4px] px-[8px] rounded-full"
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : { scale: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 + 1 }}
-              >
+              <div className="flex-shrink-0 bg-black/40 py-[4px] px-[8px] rounded-full">
                 <span className="text-sm text-white font-medium">{skill.proficiency}%</span>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>
@@ -113,4 +92,3 @@ function TechStack({ skills = defaultSkills }: TechstackProps) {
 }
 
 export default TechStack
-
