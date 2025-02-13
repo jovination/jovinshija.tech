@@ -60,7 +60,7 @@ function PricingTable() {
     const currentPlan = plans.find((plan) => plan.name === selectedPlan) || plans[0]
 
     return (
-        <div className="mt-20 flex flex-col items-center">
+        <div className="mt-16 flex flex-col items-center">
             <div className="p-1 flex items-center w-fit h-[54px] hero rounded-full gap-2">
                 {plans.map((plan) => (   
                     <Button

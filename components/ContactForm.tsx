@@ -53,7 +53,7 @@ function ContactForm() {
   }
 
   return (
-    <div className="p-2 w-[370px] md:w-[550px] h-[850px] hero rounded-[36px] md:rounded-[46px]">
+    <div className="p-1 md:p-2 w-[370px] md:w-[550px] h-[850px] hero rounded-[36px] md:rounded-[46px]">
       <div className="h-[770px] wrapper-hero rounded-[30px] md:rounded-[40px] flex flex-col gap-[28px] md:gap-[28px] px-[20px] py-[40px]  md:p-[60px]">
         <div className="flex flex-col items-center gap-6">
           <h2 className=" text-3xl md:text-5xl font-medium">Contact</h2>
