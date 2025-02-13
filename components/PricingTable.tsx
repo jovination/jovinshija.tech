@@ -125,7 +125,7 @@ function PricingTable(){
                     <GetStartedButton />
                  </div>
                 </div>
-                <div className="my-10 px-[50px]">
+                <div className="my-10 px-[30px] md:px-[50px]">
               <p className="text-sm mb-6 font-semibold">Features included:</p>
             <ul className="space-y-3 md:space-y-4">
               {currentPlan.features.map((feature, index) => (
