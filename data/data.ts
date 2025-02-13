@@ -34,7 +34,7 @@ export const projects: Project[] = [
     link: "/projects/cargo-town",
   },
   {
-    id: 3,
+    id: 4,
     title: "Safari",
     description: "Another Amazing Project",
     logoText: "CT",
