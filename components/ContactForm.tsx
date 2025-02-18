@@ -122,7 +122,7 @@ function ContactForm() {
             +255 (747) 510-151
           </a>
           <a className="text-center text-2xl md:text-4xl font-bold" href="#">
-            hello@jovinshija.tech
+            booking@jovinshija.tech
           </a>
           <p className="mt-2 text-sm font-semibold text-center text-[#AEAEAE]">
             © Copyright 2025. All rights Reserved.
