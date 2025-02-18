@@ -2,7 +2,7 @@ import React from 'react';
 import { LuArrowUpRight } from "react-icons/lu";
 
 const GetStartedButton = ({ 
-  href = "#", 
+  href = "#pricing", 
   children = "Get started",
   className = "",
   iconClassName = ""

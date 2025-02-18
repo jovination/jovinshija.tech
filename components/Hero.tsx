@@ -69,13 +69,7 @@ function Hero() {
                 </p>  
                 </div>
                 <div className="flex items-center gap-[15px] md:gap-[30px]">
-                <GetStartedButton 
-                    href="#" 
-                    className="custom-class"
-                    iconClassName="custom-icon-class"
-                    >
-                        Get started
-                    </GetStartedButton>
+                <GetStartedButton  />
                     <div className=" hidden bg-[--grey03]  h-[54px] rounded-full w-fit md:flex  md:px-[30px] py-[6px]  items-center justify-center">
                         <a 
                          className="text-md font-medium"
