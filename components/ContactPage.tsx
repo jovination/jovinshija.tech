@@ -4,7 +4,7 @@ import ContactForm from "@/components/ContactForm"
 
 function ContactPage(){
     return(
-        <div className="mt-24 h-[1188px] flex flex-col justify-center gap-8">
+        <div className="mt-10 h-[1188px] flex flex-col justify-center gap-8">
            <ProfileComponent />
            <ContactForm />
 
