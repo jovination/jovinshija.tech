@@ -13,8 +13,8 @@ function Navbar() {
           <Link href="/projects" className="hover:text-gray-700 transition-colors">
             Projects
           </Link>
-          <Link href="/blog" className="hover:text-gray-700 transition-colors">
-            Blog
+          <Link href="/pricing" className="hover:text-gray-700 transition-colors">
+            Pricing
           </Link>
           <Link
             href="/contact"

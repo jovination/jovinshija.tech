@@ -3,7 +3,7 @@ import PricingTable from "@/components/PricingTable"
 
 function PricingPackages(){
     return (
-        <div className="mt-24">
+        <div className="mt-24 mb-10">
             <HeadTitle 
             heading="My Pricing" 
             subheading="choose the plan that fits your project" 
