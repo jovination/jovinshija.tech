@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       from: "Jovin Shija <developer@jovinshija.tech>",
       to: email,
       subject: "Thank you for your message!",
-      react: UserConfirmationEmail({ name }),
+      react: await UserConfirmationEmail({ name }),
     });
 
     if (userEmailResult.error) {
@@ -40,7 +40,7 @@ export async function POST(request: Request) {
       from: "Website Contact Form <developer@jovinshija.tech>",
       to: "booking@jovinshija.tech",
       subject: "New Contact Form Submission",
-      react: AdminNotificationEmail({ name, email, message }),
+      react: await AdminNotificationEmail({ name, email, message }),
     });
 
     if (adminEmailResult.error) {
