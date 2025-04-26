@@ -27,12 +27,12 @@ function ContactForm() {
     setSubmitMessage("")
 
     try {
-      const response = await fetch("/api/message", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...formData, type: "message" }),
+        body: JSON.stringify(formData),
       })
 
       const data = await response.json()
@@ -40,8 +40,6 @@ function ContactForm() {
       if (response.ok) {
         setSubmitMessage("Message sent successfully!")
         setFormData({ name: "", email: "", message: "" })
-        // Clear cache by refetching messages
-        await fetch("/api/message", { cache: "no-store" })
       } else {
         setSubmitMessage(data.error || "Failed to send message. Please try again.")
       }
@@ -56,7 +54,7 @@ function ContactForm() {
     <div className="p-1 md:p-2 w-[370px] md:w-[550px] h-[780px] md:h-[850px] hero rounded-[36px] md:rounded-[46px]">
       <div className="h-auto wrapper-hero rounded-[30px] md:rounded-[40px] flex flex-col gap-[28px] md:gap-[28px] px-[20px] py-[40px]  md:p-[60px]">
         <div className="flex flex-col items-center gap-6">
-          <h2 className=" text-3xl md:text-5xl font-medium">Contact</h2>
+          <h2 className="text-3xl md:text-5xl font-medium">Contact</h2>
           <p className="text-[--grey01] text-center font-medium">
             Fill out the form, or reach out directly. <br />
             I'll respond within 24 hours.
@@ -117,11 +115,11 @@ function ContactForm() {
         </form>
         {submitMessage && <p className="text-center text-sm font-semibold text-[#AEAEAE]">{submitMessage}</p>}
         <div className="flex flex-col gap-3">
-          <p className=" text-sm font-semibold text-center text-[#AEAEAE]">Let's chat!</p>
+          <p className="text-sm font-semibold text-center text-[#AEAEAE]">Let's chat!</p>
           <a className="text-center text-lg font-semibold" href="#">
             +255 (747) 510-151
           </a>
-          <a className="text-center text-2xl md:text-4xl font-bold" href="#">
+          <a className="text-center text-2xl md:text-4xl font-bold" href="mailto:booking@jovinshija.tech">
             booking@jovinshija.tech
           </a>
           <p className="mt-2 text-sm font-semibold text-center text-[#AEAEAE]">
@@ -134,4 +132,3 @@ function ContactForm() {
 }
 
 export default ContactForm
-
