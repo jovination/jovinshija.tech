@@ -1,4 +1,3 @@
-// app/api/contact/route.ts
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { UserConfirmationEmail } from "@/emails/UserConfirmationEmail";
@@ -22,7 +21,7 @@ export async function POST(request: Request) {
 
     // Send confirmation email to the user
     const userEmailResult = await resend.emails.send({
-      from: "Jovin Shija <developer@jovinshija.tech>", // Using the verified email
+      from: "Jovin Shija <developer@jovinshija.tech>",
       to: email,
       subject: "Thank you for your message!",
       react: UserConfirmationEmail({ name }),
@@ -38,8 +37,8 @@ export async function POST(request: Request) {
 
     // Send notification email to the admin
     const adminEmailResult = await resend.emails.send({
-      from: "Website Contact Form <developer@jovinshija.tech>", // Using the verified email
-      to: "booking@jovinshija.tech", // Your email address
+      from: "Website Contact Form <developer@jovinshija.tech>",
+      to: "booking@jovinshija.tech",
       subject: "New Contact Form Submission",
       react: AdminNotificationEmail({ name, email, message }),
     });
