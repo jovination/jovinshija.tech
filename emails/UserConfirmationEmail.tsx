@@ -46,8 +46,8 @@ export const UserConfirmationEmail: React.FC<UserConfirmationEmailProps> = ({
               me on social media.
             </Text>
             
-            <Button pX={20} pY={16} style={styles.button} href="https://jovinshija.tech">
-              Visit Portfolio
+            <Button style={styles.button} href="https://jovinshija.tech">
+            Visit Portfolio
             </Button>
           </Section>
           
