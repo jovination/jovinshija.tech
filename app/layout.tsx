@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { initializeApp } from "firebase/app";
+
+declare global {
+  interface Window {
+    firebase: any;
+  }
+}
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -74,27 +81,32 @@ export default function RootLayout({
             knowsAbout: ["Software Development", "Web Development", "App Development", "JavaScript"],
           }),
         }} />
+          <Script
+            src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js"
+            strategy="afterInteractive"
+          />
+          <Script
+            src="https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js"
+            strategy="afterInteractive"
+            onLoad={() => {
+              const firebaseConfig = {
+                apiKey: "AIzaSyCTqeH7x6XDkmNatMXQMgVU18a6ISy40Vo",
+                authDomain: "jovinshijatech.firebaseapp.com",
+                projectId: "jovinshijatech",
+                storageBucket: "jovinshijatech.firebasestorage.app",
+                messagingSenderId: "383600900154",
+                appId: "1:383600900154:web:d115801dcff88ad5d61d03",
+                measurementId: "G-7HBHM8EX6D"
+              };
+              window.firebase.initializeApp(firebaseConfig);
+              window.firebase.analytics();
+            }}
+          />
+          <meta name="google-site-verification" content="Sz97e4b8ekBPyzuYSLTZhAvvXHI40WlMoUQVUsnpAuk" />
       </head>
       <body className={`${manrope.variable} antialiased bg-[--background] text-white`}>
         {children}
-
-        <Script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js" strategy="lazyOnload" />
-        <Script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js" strategy="lazyOnload" />
-        <Script id="firebase-init" strategy="lazyOnload" dangerouslySetInnerHTML={{
-          __html: `
-            const firebaseConfig = {
-              apiKey: "AIzaSyCTqeH7x6XDkmNatMXQMgVU18a6ISy40Vo",
-              authDomain: "jovinshijatech.firebaseapp.com",
-              projectId: "jovinshijatech",
-              storageBucket: "jovinshijatech.appspot.com",
-              messagingSenderId: "383600900154",
-              appId: "1:383600900154:web:d115801dcff88ad5d61d03",
-              measurementId: "G-7HBHM8EX6D"
-            };
-            firebase.initializeApp(firebaseConfig);
-            firebase.analytics();
-          `,
-        }} />
+        
       </body>
     </html>
   );
