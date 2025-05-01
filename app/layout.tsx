@@ -1,22 +1,51 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import Script from "next/script";
-import "./globals.css";
 import { initializeApp } from "firebase/app";
+import "./globals.css";
 
-declare global {
-  interface Window {
-    firebase: any;
-  }
-}
+// Define environment variables type-safely
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCTqeH7x6XDkmNatMXQMgVU18a6ISy40Vo",
+  authDomain: "jovinshijatech.firebaseapp.com",
+  projectId: "jovinshijatech",
+  storageBucket: "jovinshijatech.firebasestorage.app",
+  messagingSenderId: "383600900154",
+  appId: "1:383600900154:web:d115801dcff88ad5d61d03",
+  measurementId: "G-7HBHM8EX6D"
+};
 
+// Font optimization
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap", // Improves font loading performance
 });
 
+// Structured data
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Jovin Shija",
+  url: "https://jovinshija.tech",
+  sameAs: [
+    "https://www.linkedin.com/in/jovination",
+    "https://www.twitter.com/jovination_",
+    "https://www.instagram.com/jovination_",
+  ],
+  jobTitle: "Software Engineer",
+  worksFor: {
+    "@type": "Organization",
+    name: "Spiraxy Studio",
+  },
+  knowsAbout: ["Software Development", "Fullstack Developer", "App Development", "JavaScript"],
+};
+
+// SEO metadata
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jovinshija.tech"),
   title: "Jovin Shija | Software Engineer | Full Stack Developer",
   description:
     "Explore the portfolio of Jovin Shija, a Software Engineer & Full Stack Developer. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
@@ -36,17 +65,19 @@ export const metadata: Metadata = {
     ],
     locale: "en_US",
   },
-
   twitter: {
     card: "summary_large_image",
     site: "@jovination4",
-    title: "Jovin Shija | Software Engineer",
+    title: "Jovin Shija | Software Engineer | Full Stack Developer | SaaS Builder",
     description:
       "Explore the portfolio of Jovin Shija, a Software Engineer & Full Stack Developer. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
-    images: ["https://jovinshija.tech/preview.png"],
+    images: ["/preview.png"],
   },
-  other: {
-    "facebook-domain-verification": "p35u9ozrvagy4l1mwtld6t0hwkhllz",
+  verification: {
+    google: "Sz97e4b8ekBPyzuYSLTZhAvvXHI40WlMoUQVUsnpAuk",
+    other: {
+      "facebook-domain-verification": "p35u9ozrvagy4l1mwtld6t0hwkhllz",
+    }
   },
   robots: {
     index: true,
@@ -60,53 +91,38 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={manrope.variable}>
       <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Jovin Shija",
-            url: "https://jovinshija.tech",
-            sameAs: [
-              "https://www.linkedin.com/in/jovination",
-              "https://www.twitter.com/jovination4",
-              "https://www.instagram.com/jovination_",
-            ],
-            jobTitle: "Software Engineer",
-            worksFor: {
-              "@type": "Organization",
-              name: "Spiraxy Studio",
-            },
-            knowsAbout: ["Software Development", "Web Development", "App Development", "JavaScript"],
-          }),
-        }} />
-          <Script
-            src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js"
-            strategy="afterInteractive"
-          />
-          <Script
-            src="https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js"
-            strategy="afterInteractive"
-            onLoad={() => {
-              const firebaseConfig = {
-                apiKey: "AIzaSyCTqeH7x6XDkmNatMXQMgVU18a6ISy40Vo",
-                authDomain: "jovinshijatech.firebaseapp.com",
-                projectId: "jovinshijatech",
-                storageBucket: "jovinshijatech.firebasestorage.app",
-                messagingSenderId: "383600900154",
-                appId: "1:383600900154:web:d115801dcff88ad5d61d03",
-                measurementId: "G-7HBHM8EX6D"
-              };
-              window.firebase.initializeApp(firebaseConfig);
-              window.firebase.analytics();
-            }}
-          />
-          <meta name="google-site-verification" content="Sz97e4b8ekBPyzuYSLTZhAvvXHI40WlMoUQVUsnpAuk" />
+        <Script id="schema-org" type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </Script>
       </head>
-      <body className={`${manrope.variable} antialiased bg-[--background] text-white`}>
+      <body className="antialiased bg-[--background] text-white">
         {children}
         
+        {/* Firebase Scripts - Using the recommended modular SDK */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-7HBHM8EX6D"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-7HBHM8EX6D');
+          `}
+        </Script>
+        <Script id="firebase-config" strategy="afterInteractive">
+          {`
+            import { initializeApp } from 'firebase/app';
+            import { getAnalytics } from 'firebase/analytics';
+            
+            const firebaseConfig = ${JSON.stringify(firebaseConfig)};
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+          `}
+        </Script>
       </body>
     </html>
   );

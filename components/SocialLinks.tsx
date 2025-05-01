@@ -6,7 +6,7 @@ function SocialLinks() {
 <div className="flex space-x-3">
       {/* Twitter (X) */}
       <a
-        href="https://x.com/jovination4"
+        href="https://x.com/jovination_"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Twitter"
