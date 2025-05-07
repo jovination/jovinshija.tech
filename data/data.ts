@@ -11,7 +11,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: "FEEDBACK GROVE",
+    title: "Feedback Grove",
     description: "Anonymous Feedback Collector",
     logoText: "FG",
     backgroundImage: "/feedbackgrove.jpg",
@@ -19,7 +19,7 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "SWiftyQuill",
+    title: "SwiftyQuill",
     description: "intuitive note-taking app",
     logoText: "SQ",
     backgroundImage: "/swiftyquill.png",
@@ -27,7 +27,7 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    title: "SENTRY PASSKEY",
+    title: "SentryPasskey",
     description: "Random Password Generator",
     logoText: "SP",
     backgroundImage: "/sentrypass.jpg",
@@ -36,7 +36,7 @@ export const projects: Project[] = [
  
   {
     id: 4,
-    title: "SMARTICA GADGETS",
+    title: "Smartica Gadgets",
     description: "Single product e-store",
     logoText: "SG",
     backgroundImage: "/smartica.png",
@@ -44,7 +44,7 @@ export const projects: Project[] = [
   },
   {
     id: 5,
-    title: "SHORTIIFY",
+    title: "Shortify",
     description: "URL Shortening Platform",
     logoText: "SF",
     backgroundImage: "/shortfy.webp",
