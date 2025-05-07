@@ -37,7 +37,7 @@ export const projects: Project[] = [
   {
     id: 4,
     title: "SMARTICA GADGETS",
-    description: "Single product e-commerce store",
+    description: "Single product e-store",
     logoText: "SG",
     backgroundImage: "/smartica.png",
     link: "https://smarticagadgets.store/",
