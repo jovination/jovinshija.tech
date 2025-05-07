@@ -28,7 +28,7 @@ export const projects: Project[] = [
   {
     id: 3,
     title: "SENTRY PASSKEY",
-    description: "Password Generator",
+    description: "Random Password Generator",
     logoText: "SP",
     backgroundImage: "/sentrypass.jpg",
     link: "https://sentrypasskey.com/",
