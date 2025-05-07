@@ -285,14 +285,19 @@ function Experience() {
 }
 
 // Simple CountUp component for the percentage animation
-function CountUp({ end, duration }) {
+interface CountUpProps {
+  end: number;
+  duration: number;
+}
+
+function CountUp({ end, duration }: CountUpProps) {
   const [count, setCount] = useState(0);
   
   useEffect(() => {
-    let startTime;
-    let animationFrame;
+    let startTime: number | undefined;
+    let animationFrame: number;
     
-    const updateCount = (timestamp) => {
+    const updateCount = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = timestamp - startTime;
       const percentage = Math.min(progress / (duration * 1000), 1);
