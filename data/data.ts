@@ -27,6 +27,15 @@ export const projects: Project[] = [
   },
   {
     id: 3,
+    title: "Zenopay",
+    description: "Payment Innovative Platform",
+    logoText: "ZP",
+    backgroundImage: "/zenopay.png",
+    link: "https://pro.zenopay.net/",
+  },
+
+  {
+    id: 4,
     title: "SentryPasskey",
     description: "Random Password Generator",
     logoText: "SP",
@@ -35,7 +44,7 @@ export const projects: Project[] = [
   },
  
   {
-    id: 4,
+    id: 5,
     title: "Smartica Gadgets",
     description: "Single product e-store",
     logoText: "SG",
@@ -43,7 +52,7 @@ export const projects: Project[] = [
     link: "https://smarticagadgets.store/",
   },
   {
-    id: 5,
+    id: 6,
     title: "Shortify",
     description: "URL Shortening Platform",
     logoText: "SF",
