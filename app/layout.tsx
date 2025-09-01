@@ -96,6 +96,7 @@ export default function RootLayout({
         <Script id="schema-org" type="application/ld+json">
           {JSON.stringify(structuredData)}
         </Script>
+        
       </head>
       <body className="antialiased bg-[--background] text-white">
         {children}
@@ -123,6 +124,24 @@ export default function RootLayout({
             const analytics = getAnalytics(app);
           `}
         </Script>
+        <Script
+        id="feedbackgrove-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              var script = document.createElement('script');
+              script.src = "https://feedbackgrove.com/feedback-popup.js";
+              script.setAttribute('data-username', "JovinShija");
+              script.setAttribute('data-theme', "dark");
+              script.setAttribute('data-template', "minimal");
+              script.setAttribute('data-id', "customer-satisfaction");
+              document.head.appendChild(script);
+            })();
+          `,
+        }}
+      />
+        
       </body>
     </html>
   );
