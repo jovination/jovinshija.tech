@@ -129,8 +129,8 @@ function Hero() {
                 <AvailabilityIndicator />
               </motion.div>
               <motion.div className="flex items-center md:items-start md:flex-col gap-[2px] md:gap-[1px]">
-                <p className="text-sm">Available </p>
-                <p className="text-sm text-[--grey01] font-semibold">as Freelancer</p>
+                <p className="text-sm">Working </p>
+                <p className="text-sm text-[--grey01] font-semibold">at Zeno Limited</p>
               </motion.div>
             </motion.div>
 
