@@ -18,12 +18,12 @@ export default function Home() {
       <SplashCursor />
       <Navbar />
       <Hero />
+      <PricingPackages />
       <Work />
       <Services />
       <WorkingProcess />
       <SkillSets />
       <Experience />
-      <PricingPackages />
       <ContactPage />
     </div>
   );

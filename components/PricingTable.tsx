@@ -12,7 +12,7 @@ const plans = [
       id: "01",
       name: "Startup MVP",
       description: "Launch-ready product for early-stage startups",
-      price: "Tsh 8,000,000+",
+      price: "Tsh 8M+",
       duration: "6-8 weeks",
       features: [
         "Market-validated feature set and user flows",
@@ -29,7 +29,7 @@ const plans = [
       id: "02",
       name: "Custom SaaS",
       description: "Full-featured software as a service platform",
-      price: "Tsh 25,000,000+",
+      price: "Tsh 25M+",
       duration: "12-16 weeks",
       features: [
         "Multi-tenant architecture design",
@@ -48,7 +48,7 @@ const plans = [
       id: "03",
       name: "Tech Consultancy",
       description: "Strategic guidance for complex technical challenges",
-      price: "Tsh 500,000+",
+      price: "Tsh 500K+",
       duration: "Flexible",
       features: [
         "System architecture review and recommendations",
@@ -65,7 +65,7 @@ const plans = [
 ]
 
 function PricingTable() {
-    const [selectedPlan, setSelectedPlan] = useState("Basic")
+    const [selectedPlan, setSelectedPlan] = useState("Startup MVP")
     const [isVisible, setIsVisible] = useState(false)
     const currentPlan = plans.find((plan) => plan.name === selectedPlan) || plans[0]
 
