@@ -36,6 +36,7 @@ const structuredData = {
     "https://www.instagram.com/jovination_",
   ],
   jobTitle: "Software Engineer",
+  description: "Founder of Nasiacademy",
   worksFor: {
     "@type": "Organization",
     name: "Spiraxy Studio",
@@ -46,15 +47,15 @@ const structuredData = {
 // SEO metadata
 export const metadata: Metadata = {
   metadataBase: new URL("https://jovinshija.tech"),
-  title: "Jovin Shija | Software Engineer | Full Stack Developer",
+  title: "Jovin Shija | Software Engineer | Full Stack Developer| Founder of Nasiacademy",
   description:
-    "Explore the portfolio of Jovin Shija, a Software Engineer & Full Stack Developer. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
+    "Explore the portfolio of Jovin Shija, a Software Engineer & Founder of Nasiacademy. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
   openGraph: {
     type: "website",
     url: "https://jovinshija.tech/",
     title: "Jovin Shija | Software Engineer | Full Stack Developer",
     description:
-      "Explore the portfolio of Jovin Shija, a passionate Software Developer & UI/UX Designer. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
+      "Explore the portfolio of Jovin Shija, Software Engineer & Founder of Nasiacademy. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
     images: [
       {
         url: "/preview.png",
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
     site: "@jovination4",
     title: "Jovin Shija | Software Engineer | Full Stack Developer | SaaS Builder | Founder of Nasiacademy",
     description:
-      "Explore the portfolio of Jovin Shija, a Software Engineer & Full Stack Developer. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
+      "Explore the portfolio of Jovin Shija, a Software Engineer & Founder of Nasiacademy. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
     images: ["/preview.png"],
   },
   verification: {
