@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@jovination4",
-    title: "Jovin Shija | Software Engineer | Full Stack Developer | SaaS Builder",
+    title: "Jovin Shija | Software Engineer | Full Stack Developer | SaaS Builder | Founder of Nasiacademy",
     description:
       "Explore the portfolio of Jovin Shija, a Software Engineer & Full Stack Developer. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
     images: ["/preview.png"],
