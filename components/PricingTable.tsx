@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "framer-motion"
 const plans = [
     {
       id: "01",
-      name: "Startup",
+      name: "Startup MVP",
       description: "Launch-ready product for early-stage startups",
       price: "Tsh 8M+",
       duration: "6-8 weeks",
@@ -27,7 +27,7 @@ const plans = [
     },
     {
       id: "02",
-      name: "SaaS",
+      name: "Custom SaaS",
       description: "Full-featured software as a service platform",
       price: "Tsh 25M+",
       duration: "12-16 weeks",
