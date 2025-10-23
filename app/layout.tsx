@@ -74,15 +74,19 @@ export const metadata: Metadata = {
       "Explore the portfolio of Jovin Shija, a Software Engineer & Founder of Nasiacademy. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
     images: ["/preview.png"],
   },
-  verification: {
-    google: "Sz97e4b8ekBPyzuYSLTZhAvvXHI40WlMoUQVUsnpAuk",
-    other: {
-      "facebook-domain-verification": "p35u9ozrvagy4l1mwtld6t0hwkhllz",
-    }
-  },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: "https://jovinshija.tech",
   },
 };
 
@@ -97,7 +101,10 @@ export default function RootLayout({
         <Script id="schema-org" type="application/ld+json">
           {JSON.stringify(structuredData)}
         </Script>
-        
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <link rel="sitemap" type="application/xml" href="/api/sitemap" />
+        <meta name="google-site-verification" content="Sz97e4b8ekBPyzuYSLTZhAvvXHI40WlMoUQVUsnpAuk" />
+        <meta name="facebook-domain-verification" content="p35u9ozrvagy4l1mwtld6t0hwkhllz" />
       </head>
       <body className="antialiased bg-[--background] text-white">
         {children}
