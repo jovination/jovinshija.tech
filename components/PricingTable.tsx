@@ -46,7 +46,7 @@ const plans = [
     },
     {
       id: "03",
-      name: "Tech Consultancy",
+      name: "Consultancy",
       description: "Strategic guidance for complex technical challenges",
       price: "Tsh 500K+",
       duration: "Flexible",
