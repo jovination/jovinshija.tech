@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jovinshija.tech/sitemap.xml
+Sitemap: https://jovinshija.tech/api/sitemap
