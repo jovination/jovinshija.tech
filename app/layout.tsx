@@ -41,19 +41,19 @@ const structuredData = {
     "@type": "Organization",
     name: "Spiraxy Studio",
   },
-  knowsAbout: ["Software Development", "Fullstack Developer", "App Development", "JavaScript"],
+  knowsAbout: ["Software Development", "Fullstack Developer", "App Development", "JavaScript", "Founder of Nasiacademy"],
 };
 
 // SEO metadata
 export const metadata: Metadata = {
   metadataBase: new URL("https://jovinshija.tech"),
-  title: "Jovin Shija | Software Engineer | Full Stack Developer| Founder of Nasiacademy",
+  title: "Jovin Shija | Software Engineer | Founder of Nasiacademy",
   description:
     "Explore the portfolio of Jovin Shija, a Software Engineer & Founder of Nasiacademy. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
   openGraph: {
     type: "website",
     url: "https://jovinshija.tech/",
-    title: "Jovin Shija | Software Engineer | Full Stack Developer",
+    title: "Jovin Shija | Software Engineer | Founder of Nasiacademy",
     description:
       "Explore the portfolio of Jovin Shija, Software Engineer & Founder of Nasiacademy. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
     images: [
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@jovination4",
-    title: "Jovin Shija | Software Engineer | Full Stack Developer | SaaS Builder | Founder of Nasiacademy",
+    title: "Jovin Shija | Software Engineer | Founder of Nasiacademy",
     description:
       "Explore the portfolio of Jovin Shija, a Software Engineer & Founder of Nasiacademy. Crafting immersive digital wonders using JavaScript, React.js, and Python.",
     images: ["/preview.png"],
