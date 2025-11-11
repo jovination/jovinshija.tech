@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "framer-motion"
 const plans = [
     {
       id: "01",
-      name: "Startup MVP",
+      name: "MVP",
       description: "Launch-ready product for early-stage startups",
       price: "Tsh 8M+",
       duration: "6-8 weeks",
@@ -27,7 +27,7 @@ const plans = [
     },
     {
       id: "02",
-      name: "Custom SaaS",
+      name: "SaaS",
       description: "Full-featured software as a service platform",
       price: "Tsh 25M+",
       duration: "12-16 weeks",
@@ -65,7 +65,7 @@ const plans = [
 ]
 
 function PricingTable() {
-    const [selectedPlan, setSelectedPlan] = useState("Startup MVP")
+    const [selectedPlan, setSelectedPlan] = useState("MVP")
     const [isVisible, setIsVisible] = useState(false)
     const currentPlan = plans.find((plan) => plan.name === selectedPlan) || plans[0]
 

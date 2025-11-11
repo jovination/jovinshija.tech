@@ -5,7 +5,7 @@ import SplashCursor from "@/components/SplashCursor"
 function ContactingPage(){
     return(
         <div className="flex flex-col  items-center min-h-screen mx-auto">
-          <SplashCursor />
+          {/* <SplashCursor /> */}
           <ContactPage /> 
         </div>
     )

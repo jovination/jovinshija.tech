@@ -8,7 +8,7 @@ import SplashCursor from "@/components/SplashCursor";
 function ProjectPage(){
     return (
         <div className="flex flex-col  items-center min-h-screen mx-auto">
-        <SplashCursor />
+        {/* <SplashCursor /> */}
         <Navbar />
         <Work />
         <ContactPage />

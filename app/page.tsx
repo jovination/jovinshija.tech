@@ -15,7 +15,7 @@ import SplashCursor from "@/components/SplashCursor"
 export default function Home() {
   return (
     <div className="flex flex-col  items-center min-h-screen mx-auto">
-      <SplashCursor />
+      {/* <SplashCursor /> */}
       <Navbar />
       <Hero />
       <PricingPackages />
