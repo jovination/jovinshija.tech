@@ -1,20 +1,74 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-
 import { MdEmail, MdPerson, MdMessage } from "react-icons/md"
 import { Loader2 } from "lucide-react"
+
+declare global {
+  interface Window {
+    grecaptcha: any;
+    onRecaptchaLoad: () => void;
+  }
+}
 
 function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
+    recaptchaToken: ""
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState("")
+  const [isRecaptchaReady, setIsRecaptchaReady] = useState(false)
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null)
+
+  // Load reCAPTCHA script
+  useEffect(() => {
+    // Skip in development or if window is not defined (SSR)
+    if (process.env.NODE_ENV === 'development' || typeof window === 'undefined') {
+      // In development, bypass reCAPTCHA verification
+      setIsRecaptchaReady(true)
+      return
+    }
+
+    // Check if reCAPTCHA is already loaded
+    if (window.grecaptcha) {
+      setIsRecaptchaReady(true)
+      return
+    }
+
+    // Add reCAPTCHA script
+    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+    if (!siteKey) {
+      console.error('reCAPTCHA site key is not configured')
+      return
+    }
+
+    const script = document.createElement('script')
+    script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`
+    script.async = true
+    script.defer = true
+    script.onload = () => {
+      window.grecaptcha.ready(() => {
+        setIsRecaptchaReady(true)
+      })
+    }
+    script.onerror = () => {
+      console.error('Failed to load reCAPTCHA script')
+      // In case of error, still allow form submission in development
+      if (process.env.NODE_ENV === 'development') {
+        setIsRecaptchaReady(true)
+      }
+    }
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -23,23 +77,47 @@ function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    if (!isRecaptchaReady) {
+      setSubmitMessage("Security verification is loading. Please try again in a moment.")
+      return
+    }
+
     setIsSubmitting(true)
     setSubmitMessage("")
 
     try {
+      let recaptchaToken = ''
+      
+      // Skip reCAPTCHA in development
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Skipping reCAPTCHA in development mode')
+        recaptchaToken = 'dev-skip-recaptcha'
+      } else {
+        // Execute reCAPTCHA in production
+        const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+        if (!siteKey) {
+          throw new Error('reCAPTCHA site key is not configured')
+        }
+        recaptchaToken = await window.grecaptcha.execute(siteKey, { action: 'submit' })
+      }
+      
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken
+        })
       })
 
       const data = await response.json()
 
       if (response.ok) {
         setSubmitMessage("Message sent successfully!")
-        setFormData({ name: "", email: "", message: "" })
+        setFormData({ name: "", email: "", message: "", recaptchaToken: "" })
       } else {
         setSubmitMessage(data.error || "Failed to send message. Please try again.")
       }
@@ -101,7 +179,7 @@ function ContactForm() {
           <Button
             className="bg-[--primary] h-[58px] rounded-full text-base hover:bg-[--primary]/30 flex items-center justify-center"
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || (!isRecaptchaReady && process.env.NODE_ENV !== 'development')}
           >
             {isSubmitting ? (
               <>
@@ -122,9 +200,14 @@ function ContactForm() {
           <a className="text-center text-2xl md:text-4xl font-bold" href="mailto:booking@jovinshija.tech">
             booking@jovinshija.tech
           </a>
-          <p className="mt-2 text-sm font-semibold text-center text-[#AEAEAE]">
-            © Copyright 2025. All rights Reserved.
-          </p>
+          <div className="mt-2 text-center">
+            <div className="flex justify-center mb-2">
+              <div className="grecaptcha-badge" data-style="inline"></div>
+            </div>
+            <p className="text-sm font-semibold text-[#AEAEAE]">
+              © Copyright 2025. All rights Reserved.
+            </p>
+          </div>
         </div>
       </div>
     </div>

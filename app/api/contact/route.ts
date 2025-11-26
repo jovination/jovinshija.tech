@@ -6,10 +6,44 @@ import { AdminNotificationEmail } from "@/emails/AdminNotificationEmail";
 // Initialize Resend with your API key
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Verify reCAPTCHA token
+async function verifyRecaptcha(token: string): Promise<boolean> {
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+  
+  if (!secretKey) {
+    console.error('RECAPTCHA_SECRET_KEY is not set in environment variables');
+    return false;
+  }
+
+  try {
+    const formData = new URLSearchParams();
+    formData.append('secret', secretKey);
+    formData.append('response', token);
+
+    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formData,
+    });
+    
+    const data = await response.json();
+    console.log('reCAPTCHA verification response:', data);
+    
+    // For reCAPTCHA v2, we only need to check data.success
+    // For v3, you might want to check the score as well
+    return data.success === true;
+  } catch (error) {
+    console.error('reCAPTCHA verification failed:', error);
+    return false;
+  }
+}
+
 export async function POST(request: Request) {
   try {
     // Parse the request body
-    const { name, email, message } = await request.json();
+    const { name, email, message, recaptchaToken } = await request.json();
 
     // Validate the required fields
     if (!name || !email || !message) {
@@ -17,6 +51,27 @@ export async function POST(request: Request) {
         { error: "Name, email and message are required" },
         { status: 400 }
       );
+    }
+
+    // Verify reCAPTCHA token
+    if (!recaptchaToken) {
+      return NextResponse.json(
+        { error: "reCAPTCHA token is missing" },
+        { status: 400 }
+      );
+    }
+
+    if (process.env.NODE_ENV === 'development' && recaptchaToken === 'dev-skip-recaptcha') {
+      console.log('Skipping reCAPTCHA verification in development mode');
+    } else {
+      const isRecaptchaValid = await verifyRecaptcha(recaptchaToken);
+      if (!isRecaptchaValid) {
+        console.error('reCAPTCHA verification failed for token:', recaptchaToken);
+        return NextResponse.json(
+          { error: "reCAPTCHA verification failed. Please try again." },
+          { status: 400 }
+        );
+      }
     }
 
     // Send confirmation email to the user
