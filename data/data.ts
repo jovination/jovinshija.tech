@@ -17,15 +17,15 @@ export const projects: Project[] = [
     backgroundImage: "/feedbackgrove.jpg",
     link: "https://feedbackgrove.com/",
   },
-  {
+    {
     id: 2,
-    title: "SwiftyQuill",
-    description: "intuitive note-taking app",
-    logoText: "SQ",
-    backgroundImage: "/swiftyquill.png",
-    link: "https://swiftyquill.vercel.app/",
+    title: "Nasi Academy",
+    description: "Innovatie LMS plaftorm In TZ",
+    logoText: "NA",
+    backgroundImage: "/nasiacademy.png",
+    link: "https://nasiacademy.com",
   },
-  {
+   {
     id: 3,
     title: "Zenopay",
     description: "Payment Innovative Platform",
@@ -33,17 +33,24 @@ export const projects: Project[] = [
     backgroundImage: "/zenopay.png",
     link: "https://zenopay.net/",
   },
-  {
+   {
     id: 4,
-    title: "Nasi Academy",
-    description: "Innovatie LMS plaftorm In TZ",
-    logoText: "NA",
-    backgroundImage: "/nasiacademy.png",
-    link: "https://nasiacademy.com",
+    title: "Chatnae",
+    description: "Chat with your fav  Stars",
+    logoText: "CN",
+    backgroundImage: "/chatnae.png",
+    link: "https://chatnae.com",
   },
-
   {
     id: 5,
+    title: "SwiftyQuill",
+    description: "intuitive note-taking app",
+    logoText: "SQ",
+    backgroundImage: "/swiftyquill.png",
+    link: "https://swiftyquill.vercel.app/",
+  },
+  {
+    id: 6,
     title: "SentryPasskey",
     description: "Random Password Generator",
     logoText: "SP",
@@ -52,20 +59,13 @@ export const projects: Project[] = [
   },
  
   {
-    id: 6,
+    id: 7,
     title: "Smartica Gadgets",
     description: "Single product e-store",
     logoText: "SG",
     backgroundImage: "/smartica.png",
     link: "https://smarticagadgets.store/",
   },
-  {
-    id: 7,
-    title: "Shortify",
-    description: "URL Shortening Platform",
-    logoText: "SF",
-    backgroundImage: "/shortfy.webp",
-    link: "https://shortiify.website/",
-  },
+
 ]
 

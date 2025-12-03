@@ -18,8 +18,8 @@ export default function Home() {
       {/* <SplashCursor /> */}
       <Navbar />
       <Hero />
-      <PricingPackages />
       <Work />
+      <PricingPackages />
       <Services />
       <WorkingProcess />
       <SkillSets />
