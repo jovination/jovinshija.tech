@@ -7,12 +7,17 @@ import { ArrowRight, Check } from "lucide-react"
 import { MdOutlineTimer } from "react-icons/md"
 import { motion, AnimatePresence } from "framer-motion"
 
+const formatTZS = (amount: number) => {
+  return new Intl.NumberFormat('en-US').format(amount);
+};
+
 const plans = [
     {
       id: "01",
       name: "MVP",
       description: "Launch-ready product for early-stage startups",
-      price: "Tsh 8M+",
+      price: 8000000,
+      priceSuffix: "+",
       duration: "6-8 weeks",
       features: [
         "Market-validated feature set and user flows",
@@ -29,7 +34,8 @@ const plans = [
       id: "02",
       name: "SaaS",
       description: "Full-featured software as a service platform",
-      price: "Tsh 25M+",
+      price: 25000000,
+      priceSuffix: "+",
       duration: "12-16 weeks",
       features: [
         "Multi-tenant architecture design",
@@ -48,7 +54,8 @@ const plans = [
       id: "03",
       name: "Consultancy",
       description: "Strategic guidance for complex technical challenges",
-      price: "Tsh 500K+",
+      price: 500000,
+      priceSuffix: "+",
       duration: "Flexible",
       features: [
         "System architecture review and recommendations",
@@ -66,8 +73,21 @@ const plans = [
 
 function PricingTable() {
     const [selectedPlan, setSelectedPlan] = useState("MVP")
+    const [currency, setCurrency] = useState<'TZS' | 'USD'>('TZS')
     const [isVisible, setIsVisible] = useState(false)
     const currentPlan = plans.find((plan) => plan.name === selectedPlan) || plans[0]
+    
+    // Current exchange rate (1 USD = 2500 TZS) - consider using an API for real rates
+    const exchangeRate = 2500
+    
+    // Function to format price based on currency
+    const formatPrice = (price: number, suffix: string = '') => {
+        if (currency === 'USD') {
+            const usdValue = price / exchangeRate;
+            return `$${usdValue.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
+        }
+        return `${formatTZS(price)} TZS${suffix ? ' ' + suffix : ''}`;
+    }
 
     useEffect(() => {
         // Trigger the animation when component mounts
@@ -81,6 +101,29 @@ function PricingTable() {
             transition={{ duration: 0.6 }}
             className="mt-8 flex flex-col items-center"
         >
+            {/* Currency Toggle */}
+            <div className="mb-8 flex items-center gap-2 p-1 rounded-full bg-[#121212]">
+                <button
+                    onClick={() => setCurrency('TZS')}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors text-gray-500 ${
+                        currency === 'TZS' 
+                            ? 'bg-white dark:bg-gray-700 shadow-sm' 
+                            : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-700'
+                    }`}
+                >
+                    TZS
+                </button>
+                <button
+                    onClick={() => setCurrency('USD')}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors text-gray-500 ${
+                        currency === 'USD' 
+                            ? 'bg-white dark:bg-gray-700 shadow-sm' 
+                            : 'text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-700'
+                    }`}
+                >
+                    USD
+                </button>
+            </div>
             <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -155,9 +198,18 @@ function PricingTable() {
                                 <h2 className="text-xl md:text-3xl font-semibold">
                                     {currentPlan.name}
                                 </h2>
-                                <div className="flex flex-col md:flex-row items-end md:gap-1">
-                                    <p className="text-lg md:text-2xl font-semibold">{currentPlan.price}</p>
-                                    <span className="text-base text-[--grey04] font-medium">/project</span>
+                                <div className="flex flex-col items-end">
+                                    <div className="flex items-baseline gap-1">
+                                        <p className="text-lg md:text-2xl font-semibold">
+                                            {formatPrice(currentPlan.price, currentPlan.priceSuffix)}
+                                        </p>
+                                        <span className="text-base text-[--grey04] font-medium">/project</span>
+                                    </div>
+                                    {currency === 'USD' && (
+                                        <p className="text-xs text-gray-500 mt-1">
+                                            ≈ {formatTZS(currentPlan.price)} TZS{currentPlan.priceSuffix}
+                                        </p>
+                                    )}
                                 </div>
                             </div>
                             <div>
